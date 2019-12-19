@@ -230,11 +230,65 @@ const ques6 = (arr, min, max) => {
   return sortedArr;
 };
 
-console.log(ques6([3, 6, 5, 5, 9], 3, 9));
+// console.log(ques6([3, 6, 5, 5, 9], 3, 9));
 
 // #7 Write an algorithm to shuffle an array into a
 // random order in place (i.e., without creating a new array).
+function shuffle(array) {
+  let curr = array.length,
+    temp,
+    rand;
+  while (0 !== curr) {
+    rand = Math.floor(Math.random() * curr);
+    curr -= 1;
+    temp = array[curr];
+    array[curr] = array[rand];
+    array[rand] = temp;
+  }
+  return array;
+}
+// console.log(shuffle(data));
 
 // #8 Imagine that I gave you 20 books to sort in
 // alphabetical order. Express this as an algorithm
 // and then implement your algorithm.
+// idea 1
+// loop get [0] or curr string to compare to next [0]
+// if equal do [1] etc etc
+// feelsbadman
+// idea 2
+// loop i => i hash => put in array at index of hash
+// filter array => profit
+sortBooks = () => {
+  let arr = [
+    "The Wizard Knight",
+    "The Hobbit",
+    "Hitchhikers: Guide to the Galaxy",
+    "Trainspotting",
+    "Running with Scissors"
+  ];
+  function main(currArr, x = 0, y = currArr.length) {
+    function sorter(currArr, x, y) {
+      const arrEnd = currArr[y - 1];
+      let k = x;
+      for (let i = x; i < y - 1; i++) {
+        if (currArr[i] <= arrEnd) {
+          funcs.swap(currArr, i, k);
+          k++;
+        }
+      }
+      funcs.swap(currArr, y - 1, k);
+      return k;
+    }
+
+    if (x >= y) {
+      return currArr;
+    }
+    const mid = sorter(currArr, x, y);
+    currArr = main(currArr, x, mid);
+    currArr = main(currArr, mid + 1, y);
+    return currArr;
+  }
+  console.log(main(arr));
+};
+sortBooks();
