@@ -1,10 +1,51 @@
-// importing funcs from funcs.js
-const scratch = require("./funcs");
 // #1 Given the following list of numbers 21, 1, 26, 45, 29, 28, 2, 9, 16, 49, 39, 27, 43, 34, 46, 40
 // 1.1 What is the resulting list that will be sorted after 3 recursive calls to mergesort?
+// 0 [21, 1, 26, 45, 29, 28, 2, 9] [16, 49, 39, 27, 43, 34, 46, 40]
+// 1 [21, 1, 26, 45]
+// 2 [29, 28, 2, 9]
+// 3 [16, 49, 39, 27]
+// 4 [43, 34, 46, 40]
+// 5 [21, 1]
+// 6 [26, 45]
+// 7 [29, 28]
+// 8 [2, 9]
+// 9 [16, 49]
+// 10 [39, 27]
+// 11 [43, 34]
+// 12 [46, 40]
+// 13 [21]
+// 14 [1]
+// 15 [26]
+// 16 [45]
+// 17 [29]
+// 18 [28]
+// 19 [2]
+// 20 [9]
+// 21 [16]
+// 22 [49]
+// 23 [39]
+// 24 [27]
+// 25 [43]
+// 26 [34]
+// 27 [46]
+// 28 [40]
+// 12 [40,46]
+// 11 [34,43]
+// 10 [27, 39]
+// 9 [16, 49]
+// 8 [2, 9]
+// 7 [28, 29]
+// 6 [26, 45]
+
 // 1.2 What is the resulting list that will be sorted after 16 recursive calls to mergesort?
+// 16 [45]
+
 // 1.3 What are the first 2 lists to be merged?
+// 12 [40,46]
+// 11 [34,43]
+
 // 1.4 Which two lists would be merged on the 7th merge?
+// [26] and [45]
 
 // #2.1 Suppose you are debugging a quicksort implementation that
 // is supposed to sort an array in ascending order. After the
@@ -16,13 +57,16 @@ const scratch = require("./funcs");
 // b. The pivot could have been either 14 or 17
 // c. Neither 14 nor 17 could have been the pivot
 // d. The pivot could have been 14, but could not have been 17
+// B FINAL ANSWER
 
-// #.2 Given the following list of numbers
+// #2.2 Given the following list of numbers
 // 14, 17, 13, 15, 19, 10, 3, 16, 9, 12 show the
 // resulting list after the second partitioning
 // according to the quicksort algorithm.
 // 3.1 When using the last item on the list as a pivot
+// [10,3,13,15,19][14,17,16,9,12]
 // 3.2 When using the first item on the list as a pivot
+// [14,13,17,15,19][10,3,16,9,12]
 
 // #3 Write a function qSort that sorts a dataset
 // using the quicksort algorithm. The dataset to sort is:
@@ -128,6 +172,7 @@ data = [
   "14",
   "5"
 ];
+
 // #4 Write a function mSort that sorts the dataset
 // above using the merge sort algorithm.
 

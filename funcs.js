@@ -1,7 +1,9 @@
 function swap(array, i, j) {
+  console.log(`array before swap: ${array}`);
   const tmp = array[i];
   array[i] = array[j];
   array[j] = tmp;
+  console.log(`array after swap: ${array}`);
 }
 
 function bubbleSort(array) {
@@ -66,7 +68,8 @@ function quickSort(array, start = 0, end = array.length) {
 }
 
 function partition(array, start, end) {
-  const pivot = array[end - 1];
+  const pivot = array[start];
+  console.log(`pivot: ${pivot}`);
   let j = start;
   for (let i = start; i < end - 1; i++) {
     if (array[i] <= pivot) {
