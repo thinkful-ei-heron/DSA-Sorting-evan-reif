@@ -206,12 +206,31 @@ LL = new LinkedList();
 data.forEach(i => LL.insertLast(i));
 let arr = arrayList(LL).map(i => parseInt(i));
 arr = funcs.mergeSort(arr);
-console.log(arr);
+// console.log(arr);
 
 // #6 Write an O(n) algorithm to sort an array of
 // integers, where you know in advance what the lowest
 // and highest values are. You can't use arr.splice(),
 // shift() or unshift() for this exercise.
+const ques6 = (arr, min, max) => {
+  const count = {};
+  for (let i = min; i <= max; i++) {
+    count[i] = 0;
+  }
+  for (let i = 0; i < arr.length; i++) {
+    count[arr[i]] += 1;
+  }
+  const sortedArr = [];
+  for (let i = min; i <= max; i++) {
+    while (count[i] > 0) {
+      sortedArr.push(i);
+      count[i]--;
+    }
+  }
+  return sortedArr;
+};
+
+console.log(ques6([3, 6, 5, 5, 9], 3, 9));
 
 // #7 Write an algorithm to shuffle an array into a
 // random order in place (i.e., without creating a new array).
